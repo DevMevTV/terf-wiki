@@ -56,6 +56,8 @@ export default function Item() {
             </motion.div>
         );
 
+        console.log(item);
+
     return (
         <div
             style={{
