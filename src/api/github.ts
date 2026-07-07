@@ -1,4 +1,4 @@
-const BASE = "https://YOUR_USERNAME.github.io/my-wiki-data";
+const BASE = "https://DevMevTV.github.io/terf-wiki-data";
 
 export interface WikiPage {
     title: string;

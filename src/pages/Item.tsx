@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
 import { getItem } from "../api/github";
-import ModelViewer from "../components/ModelViewer";
+
+import { motion } from "framer-motion";
 
 export default function Item() {
     const { id } = useParams();
@@ -17,11 +18,43 @@ export default function Item() {
         enabled: !!id,
     });
 
-    if (isLoading)
-        return <h1>Loading...</h1>;
+    if (isLoading || !item)
+        return (
+            <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                    duration: 0.35,
+                    ease: "easeOut",
+                }}
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100vh",
+                }}
+            >
+                <h1>Loading...</h1>
+            </motion.div>
+        );
 
     if (error)
-        return <h1>Page not found.</h1>;
+        return (
+            <motion.div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100vh",
+                }}
+            >
+                <h1>Page not found.</h1>
+                <p>
+                    Go back <Link to="/">Home</Link>
+                </p>
+            </motion.div>
+        );
 
     return (
         <div
