@@ -5,7 +5,7 @@ import Item from "./pages/Item";
 
 function App() {
   return (
-    <HashRouter basename="/terf-wiki">
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/item/:id" element={<Item />} />
