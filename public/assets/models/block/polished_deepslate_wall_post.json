@@ -1,0 +1,39 @@
+{
+    "elements":[
+        {
+            "from":[
+                4,
+                0,
+                4
+            ],
+            "to":[
+                12,
+                16,
+                12
+            ],
+            "faces":{
+                "down":{
+                    "texture":"block/polished_deepslate",
+                    "cullface":"down"
+                },
+                "up":{
+                    "texture":"block/polished_deepslate",
+                    "cullface":"up"
+                },
+                "north":{
+                    "texture":"block/polished_deepslate"
+                },
+                "south":{
+                    "texture":"block/polished_deepslate"
+                },
+                "west":{
+                    "texture":"block/polished_deepslate"
+                },
+                "east":{
+                    "texture":"block/polished_deepslate"
+                }
+            },
+            "__comment":"Center post"
+        }
+    ]
+}

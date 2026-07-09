@@ -1,10 +1,26 @@
 [
   {
+    "id": "arc_furnace",
+    "name": "Arc Furnace"
+  },
+  {
+    "id": "crusher",
+    "name": "Crusher"
+  },
+  {
     "id": "diesel_generator",
     "name": "Diesel Generator"
   },
   {
     "id": "fabricator",
     "name": "Fabricator"
+  },
+  {
+    "id": "magma_drill",
+    "name": "Magma Drill"
+  },
+  {
+    "id": "rolling_mill",
+    "name": "Rolling Mill"
   }
 ]

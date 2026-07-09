@@ -1,6 +1,18 @@
 {
     "name":"Fabricator",
     "description":"",
+    "core":{
+        "position":[
+            0,
+            0,
+            1
+        ],
+        "direction":[
+            0,
+            0,
+            -1
+        ]
+    },
     "model":{
         "x":2,
         "y":4,

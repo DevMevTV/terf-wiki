@@ -1,0 +1,7 @@
+{
+    "variants":{
+        "type=bottom":{
+            "model":"block/cut_copper_slab"
+        }
+    }
+}

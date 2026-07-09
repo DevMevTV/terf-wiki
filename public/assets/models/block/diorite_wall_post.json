@@ -1,0 +1,39 @@
+{
+    "elements":[
+        {
+            "from":[
+                4,
+                0,
+                4
+            ],
+            "to":[
+                12,
+                16,
+                12
+            ],
+            "faces":{
+                "down":{
+                    "texture":"block/diorite",
+                    "cullface":"down"
+                },
+                "up":{
+                    "texture":"block/diorite",
+                    "cullface":"up"
+                },
+                "north":{
+                    "texture":"block/diorite"
+                },
+                "south":{
+                    "texture":"block/diorite"
+                },
+                "west":{
+                    "texture":"block/diorite"
+                },
+                "east":{
+                    "texture":"block/diorite"
+                }
+            },
+            "__comment":"Center post"
+        }
+    ]
+}

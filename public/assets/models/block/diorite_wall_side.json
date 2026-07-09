@@ -1,0 +1,36 @@
+{
+    "elements":[
+        {
+            "from":[
+                5,
+                0,
+                0
+            ],
+            "to":[
+                11,
+                14,
+                8
+            ],
+            "faces":{
+                "down":{
+                    "texture":"block/diorite",
+                    "cullface":"down"
+                },
+                "up":{
+                    "texture":"block/diorite"
+                },
+                "north":{
+                    "texture":"block/diorite",
+                    "cullface":"north"
+                },
+                "west":{
+                    "texture":"block/diorite"
+                },
+                "east":{
+                    "texture":"block/diorite"
+                }
+            },
+            "__comment":"wall"
+        }
+    ]
+}

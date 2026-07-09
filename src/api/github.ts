@@ -1,4 +1,4 @@
-import type { Model } from "../components/ModelViewer";
+import type { Model, MultiBlockCore } from "../components/ModelViewer";
 
 const BASE = import.meta.env.DEV
   ? "http://localhost:5173/terf-wiki/data"
@@ -13,6 +13,7 @@ export interface Item {
 export interface Machine {
     name: string;
     description: string;
+    core: MultiBlockCore
     model: Model;
 }
 

@@ -9,6 +9,9 @@
             "x":90,
             "y":90
         },
+        "facing=up,powered=false":{
+            "model":"block/lightning_rod"
+        },
         "facing=west,powered=false":{
             "model":"block/lightning_rod",
             "x":90,

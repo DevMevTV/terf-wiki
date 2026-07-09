@@ -88,7 +88,7 @@ export default function Machine() {
                     {isMaximized ? "✕" : "⛶"}
                 </button>
 
-                <ModelViewer model={data.model} isMaximized={isMaximized}/>
+                <ModelViewer model={data.model} core={data.core} isMaximized={isMaximized}/>
             </div>
         </motion.div>
     );

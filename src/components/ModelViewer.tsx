@@ -1,12 +1,17 @@
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { FileLoader, MeshStandardMaterial, NearestFilter, TextureLoader, BufferGeometry, Float32BufferAttribute, Group } from "three";
+import { FileLoader, MeshStandardMaterial, NearestFilter, TextureLoader, BufferGeometry, Float32BufferAttribute, Group, Vector3, Quaternion } from "three";
 import { useMemo, useRef, useState } from "react";
 
 export type PaletteEntry = {
     Name: string;
     Properties?: Record<string, string>;
 };
+
+export type MultiBlockCore = {
+    position: [number, number, number];
+    direction: [number, number, number]
+}
 
 export type Model = {
     x: number;
@@ -40,8 +45,14 @@ type BlockStateVariant = {
     uvlock?: boolean;
 };
 
+type MultipartCase = {
+    when?: Record<string, string>;
+    apply: BlockStateVariant | BlockStateVariant[]
+}
+
 type BlockStateData = {
     variants?: Record<string, BlockStateVariant | BlockStateVariant[]>;
+    multipart?: MultipartCase[];
 };
 
 class JsonLoader extends FileLoader {
@@ -201,49 +212,74 @@ function BlockModel({ data }: { data: BlockModelData }) {
 
 function SingleVoxel({ entry, position }: { entry: PaletteEntry, position: [number, number, number] }) {
     const cleanName = entry.Name.replace("minecraft:", "");
-    
     const stateData = useLoader(JsonLoader, `/terf-wiki/assets/blockstates/${cleanName}.json`) as unknown as BlockStateData;
     
+    // Map of active property key-values for easier direct lookups
+    const currentProps = useMemo(() => entry.Properties ?? {}, [entry.Properties]);
+
+    // Used for the classic strict variants lookup
     const variantKeys = useMemo(() => {
-        if (!entry.Properties) return [];
-        return Object.entries(entry.Properties)
+        return Object.entries(currentProps)
             .sort((a, b) => a[0].localeCompare(b[0]))
             .map(([k, v]) => `${k}=${v}`);
-    }, [entry.Properties]);
+    }, [currentProps]);
 
     const matchedVariants = useMemo(() => {
-        if (!stateData || !stateData.variants) return [];
-        
+        if (!stateData) return [];
         const matches: BlockStateVariant[] = [];
 
-        for (const [keys, variant] of Object.entries(stateData.variants)) {
-            let add = true;
+        // --- CASE 1: Standard Variants Handling ---
+        if (stateData.variants) {
+            for (const [keys, variant] of Object.entries(stateData.variants)) {
+                let add = true;
+                for (const key of keys.split(",")) {
+                    if (key === "" || variantKeys.includes(key)) continue;
+                    add = false;
+                    break;
+                }
+                if (!add) continue;
 
-            for (const key of keys.split(",")) {
-                if (key === "" || variantKeys.includes(key)) continue
-
-                add = false;
-                break;
+                if (Array.isArray(variant)) {
+                    matches.push(variant[0]); // fallback variant arrays down to base layer
+                } else {
+                    matches.push(variant);
+                }
             }
+        } 
+        // --- CASE 2: Multipart Handling ---
+        else if (stateData.multipart) {
+            for (const part of stateData.multipart) {
+                let passesCondition = true;
 
-            if (!add) continue;
+                // If "when" is omitted, this part ALWAYS applies
+                if (part.when) {
+                    for (const [propName, expectedValue] of Object.entries(part.when)) {
+                        if (currentProps[propName] !== expectedValue) {
+                            passesCondition = false;
+                            break;
+                        }
+                    }
+                }
 
-            if (Array.isArray(variant)) {
-                matches.push(...variant)
-            } else {
-                matches.push(variant)
+                if (passesCondition) {
+                    const applyData = part.apply;
+                    if (Array.isArray(applyData)) {
+                        matches.push(applyData[0]); // Take first random variation if provided
+                    } else {
+                        matches.push(applyData);
+                    }
+                }
             }
         }
 
         return matches;
-    }, [stateData, variantKeys]);
+    }, [stateData, variantKeys, currentProps]);
 
-    // 2. Map matches to their file paths
+    // --- REMAINDER OF YOUR LOADING CODE STAYS EXACTLY THE SAME ---
     const modelPaths = useMemo(() => {
         return matchedVariants.map(v => `/terf-wiki/assets/models/${v.model}.json`);
     }, [matchedVariants]);
 
-    // 3. Load ALL models (useLoader handles arrays automatically!)
     const modelsData = useLoader(JsonLoader, modelPaths) as unknown as BlockModelData[];
 
     if (!modelsData || modelsData.length === 0) return null;
@@ -254,7 +290,6 @@ function SingleVoxel({ entry, position }: { entry: PaletteEntry, position: [numb
                 const modelData = modelsData[index];
                 if (!modelData) return null;
 
-                // Calculate distinct rotation for this specific variant layer
                 const radX = -((variant.x ?? 0) * Math.PI) / 180;
                 const radY = -((variant.y ?? 0) * Math.PI) / 180;
                 const rotation: [number, number, number] = [radX, radY, 0];
@@ -304,7 +339,50 @@ function VoxelModel({ model, currentLayer }: { model: Model, currentLayer: numbe
     return <>{cubes}</>;
 }
 
-function AutoRotatingScene({ model, isMaximized, currentLayer }: { model: Model, isMaximized: boolean, currentLayer: number }) {
+function Arrow({
+    position,
+    direction,
+    length,
+    color
+}: {
+    position: [number, number, number],
+    direction: [number, number, number],
+    length: number,
+    color: string
+}) {
+    const quaternion = useMemo(() => {
+        const dir = new Vector3(...direction).normalize();
+        const up = new Vector3(0, 1, 0);
+        const q = new Quaternion();
+        q.setFromUnitVectors(up, dir);
+        return q;
+    }, [direction]);
+
+    const headLength = length * 0.3;
+    const shaftLength = length * 0.7;
+
+    return (
+        <group position={position} renderOrder={999}>
+            <mesh>
+                <sphereGeometry args={[0.08, 16, 16]} />
+                <meshBasicMaterial color={color} depthTest={false} transparent={true} />
+            </mesh>
+            <group quaternion={quaternion}>
+                <mesh position={[0, shaftLength / 2, 0]} renderOrder={999}>
+                    <cylinderGeometry args={[0.02, 0.02, shaftLength, 8]} />
+                    <meshBasicMaterial color={color} depthTest={false} transparent={true} />
+                </mesh>
+
+                <mesh position={[0, shaftLength + headLength / 2, 0]} renderOrder={999}>
+                    <coneGeometry args={[0.06, headLength, 8]} />
+                    <meshBasicMaterial color={color} depthTest={false} transparent={true} />
+                </mesh>
+            </group>
+        </group>
+    )
+}
+
+function AutoRotatingScene({ model, core, isMaximized, currentLayer }: { model: Model, core: MultiBlockCore, isMaximized: boolean, currentLayer: number }) {
     const lastInteractionTime = useRef<number>(Date.now());
     const groupRef = useRef<Group>(null!);
 
@@ -335,11 +413,13 @@ function AutoRotatingScene({ model, isMaximized, currentLayer }: { model: Model,
                 target={[model.x / 2, model.y / 2, model.z / 2]}
                 onChange={handleUserInteraction}
             />
+
+            <Arrow position={core.position.map(n => n + 0.5) as [number, number, number]} direction={core.direction} length={core.direction.some(v => v !== 0) ? 1 : 0} color={"#AAAABB"} />
         </>
     )
 }
 
-export default function ModelViewer({ model, isMaximized }: { model: Model, isMaximized: boolean }) {
+export default function ModelViewer({ model, core, isMaximized }: { model: Model, core: MultiBlockCore, isMaximized: boolean }) {
     const [currentLayer, setCurrentLayer] = useState<number>(-1);
 
     return (
@@ -351,7 +431,7 @@ export default function ModelViewer({ model, isMaximized }: { model: Model, isMa
             }}
         >
             <Canvas camera={{ position: [model.x, model.y, model.z] }}>
-                <AutoRotatingScene model={model} isMaximized={isMaximized} currentLayer={isMaximized ? currentLayer : -1} />
+                <AutoRotatingScene model={model} core={core} isMaximized={isMaximized} currentLayer={isMaximized ? currentLayer : -1} />
             </Canvas>
 
             {isMaximized && (
@@ -377,7 +457,7 @@ export default function ModelViewer({ model, isMaximized }: { model: Model, isMa
                             fontWeight: "bold"
                         }}
                     >
-                        Layer: {currentLayer === -1 ? "All" : `Y = ${currentLayer}`}
+                        Layer: {currentLayer === -1 ? "All" : currentLayer}
                     </label>
                     <input
                         type="range"

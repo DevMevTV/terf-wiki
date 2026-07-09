@@ -1,0 +1,36 @@
+{
+    "elements":[
+        {
+            "from":[
+                5,
+                0,
+                0
+            ],
+            "to":[
+                11,
+                16,
+                8
+            ],
+            "faces":{
+                "down":{
+                    "texture":"block/polished_deepslate",
+                    "cullface":"down"
+                },
+                "up":{
+                    "texture":"block/polished_deepslate",
+                    "cullface":"up"
+                },
+                "north":{
+                    "texture":"block/polished_deepslate",
+                    "cullface":"north"
+                },
+                "west":{
+                    "texture":"block/polished_deepslate"
+                },
+                "east":{
+                    "texture":"block/polished_deepslate"
+                }
+            }
+        }
+    ]
+}

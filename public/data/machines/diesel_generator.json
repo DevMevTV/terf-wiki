@@ -1,6 +1,18 @@
 {
     "name":"Diesel Generator",
     "description":"",
+    "core":{
+        "position":[
+            5,
+            0,
+            1
+        ],
+        "direction":[
+            1,
+            0,
+            0
+        ]
+    },
     "model":{
         "x":8,
         "y":3,

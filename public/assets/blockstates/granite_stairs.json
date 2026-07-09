@@ -1,0 +1,10 @@
+{
+    "variants":{
+        "facing=west,half=top,shape=straight":{
+            "model":"block/granite_stairs",
+            "uvlock":true,
+            "x":180,
+            "y":180
+        }
+    }
+}

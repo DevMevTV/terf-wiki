@@ -9,6 +9,17 @@
             "model":"block/oxidized_cut_copper_stairs",
             "uvlock":true,
             "y":90
+        },
+        "facing=west,half=bottom,shape=straight":{
+            "model":"block/oxidized_cut_copper_stairs",
+            "uvlock":true,
+            "y":180
+        },
+        "facing=west,half=top,shape=straight":{
+            "model":"block/oxidized_cut_copper_stairs",
+            "uvlock":true,
+            "x":180,
+            "y":180
         }
     }
 }
