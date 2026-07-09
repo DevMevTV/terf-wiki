@@ -1,0 +1,18 @@
+{
+    "variants":{
+        "facing=down,powered=false":{
+            "model":"block/lightning_rod",
+            "x":180
+        },
+        "facing=east,powered=false":{
+            "model":"block/lightning_rod",
+            "x":90,
+            "y":90
+        },
+        "facing=west,powered=false":{
+            "model":"block/lightning_rod",
+            "x":90,
+            "y":270
+        }
+    }
+}

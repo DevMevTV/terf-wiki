@@ -1,0 +1,7 @@
+{
+    "variants":{
+        "crafting=false,orientation=north_up,triggered=false":{
+            "model":"block/crafter"
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "variants":{
+        "facing=up":{
+            "model":"block/dropper_vertical"
+        }
+    }
+}

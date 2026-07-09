@@ -1,0 +1,7 @@
+{
+    "name": "Dosimeter",
+    "description": "Detects the amount of radiation that is currently in the area and how much radiation the holder is exposed to",
+    "recipes": [
+        "fabricator:dosimeter"
+    ]
+}

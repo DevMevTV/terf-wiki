@@ -1,0 +1,7 @@
+{
+    "variants":{
+        "type=double,waterlogged=false":{
+            "model":"block/coil"
+        }
+    }
+}

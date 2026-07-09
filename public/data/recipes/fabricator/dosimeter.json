@@ -1,0 +1,14 @@
+{
+    "inputs": [
+        ":oxidized_copper_bulb",
+        ":note_block",
+        ":iron_nugget",
+        ":redstone_dust",
+        ":observer",
+        ":amethyst_shard",
+        "",
+        "",
+        ""
+    ],
+    "result": "dosimeter"
+}
