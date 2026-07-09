@@ -280,7 +280,7 @@ function VoxelModel({ model, currentLayer }: { model: Model, currentLayer: numbe
 
     for (let y = 0; y < model.y; y++) {
         if (currentLayer !== -1 && y !== currentLayer) continue;
-        
+
         for (let z = 0; z < model.z; z++) {
             for (let x = 0; x < model.x; x++) {
                 const index = x + z * model.x + y * model.x * model.z;
@@ -351,7 +351,7 @@ export default function ModelViewer({ model, isMaximized }: { model: Model, isMa
             }}
         >
             <Canvas camera={{ position: [model.x, model.y, model.z] }}>
-                <AutoRotatingScene model={model} isMaximized={isMaximized} currentLayer={currentLayer} />
+                <AutoRotatingScene model={model} isMaximized={isMaximized} currentLayer={isMaximized ? currentLayer : -1} />
             </Canvas>
 
             {isMaximized && (
