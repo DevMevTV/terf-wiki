@@ -1,0 +1,36 @@
+{
+    "elements":[
+        {
+            "from":[
+                5,
+                0,
+                0
+            ],
+            "to":[
+                11,
+                16,
+                8
+            ],
+            "faces":{
+                "down":{
+                    "texture":"block/granite",
+                    "cullface":"down"
+                },
+                "up":{
+                    "texture":"block/granite",
+                    "cullface":"up"
+                },
+                "north":{
+                    "texture":"block/granite",
+                    "cullface":"north"
+                },
+                "west":{
+                    "texture":"block/granite"
+                },
+                "east":{
+                    "texture":"block/granite"
+                }
+            }
+        }
+    ]
+}

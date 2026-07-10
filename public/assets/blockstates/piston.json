@@ -4,6 +4,10 @@
             "model":"block/piston",
             "x":90
         },
+        "extended=false,facing=east":{
+            "model":"block/piston",
+            "y":90
+        },
         "extended=false,facing=north":{
             "model":"block/piston"
         },
@@ -14,6 +18,10 @@
         "extended=false,facing=up":{
             "model":"block/piston",
             "x":270
+        },
+        "extended=false,facing=west":{
+            "model":"block/piston",
+            "y":270
         }
     }
 }

@@ -1,0 +1,30 @@
+{
+    "variants":{
+        "facing=down,powered=false":{
+            "model":"block/lightning_rod",
+            "x":180
+        },
+        "facing=east,powered=false":{
+            "model":"block/lightning_rod",
+            "x":90,
+            "y":90
+        },
+        "facing=north,powered=false":{
+            "model":"block/lightning_rod",
+            "x":90
+        },
+        "facing=south,powered=false":{
+            "model":"block/lightning_rod",
+            "x":90,
+            "y":180
+        },
+        "facing=up,powered=false":{
+            "model":"block/lightning_rod"
+        },
+        "facing=west,powered=false":{
+            "model":"block/lightning_rod",
+            "x":90,
+            "y":270
+        }
+    }
+}

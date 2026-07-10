@@ -12,6 +12,14 @@
     "name": "Diesel Generator"
   },
   {
+    "id": "electric_press",
+    "name": "Electric Press"
+  },
+  {
+    "id": "extrusion_press",
+    "name": "Extrusion Press"
+  },
+  {
     "id": "fabricator",
     "name": "Fabricator"
   },
@@ -20,7 +28,23 @@
     "name": "Magma Drill"
   },
   {
+    "id": "purifier",
+    "name": "Purifier"
+  },
+  {
     "id": "rolling_mill",
     "name": "Rolling Mill"
+  },
+  {
+    "id": "shearing_press",
+    "name": "Shearing Press"
+  },
+  {
+    "id": "warp_core",
+    "name": "Warp Core"
+  },
+  {
+    "id": "wet_mill",
+    "name": "Wet Mill"
   }
 ]

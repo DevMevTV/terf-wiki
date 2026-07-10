@@ -1,0 +1,7 @@
+{
+    "variants":{
+        "lit=false,powered=false":{
+            "model":"block/copper_bulb"
+        }
+    }
+}

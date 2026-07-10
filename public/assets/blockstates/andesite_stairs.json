@@ -1,42 +1,42 @@
 {
     "variants":{
         "facing=east,half=bottom,shape=straight":{
-            "model":"block/cut_copper_stairs"
+            "model":"block/andesite_stairs"
         },
         "facing=east,half=top,shape=straight":{
-            "model":"block/cut_copper_stairs",
+            "model":"block/andesite_stairs",
             "uvlock":true,
             "x":180
         },
         "facing=north,half=bottom,shape=straight":{
-            "model":"block/cut_copper_stairs",
+            "model":"block/andesite_stairs",
             "uvlock":true,
             "y":270
         },
         "facing=north,half=top,shape=straight":{
-            "model":"block/cut_copper_stairs",
+            "model":"block/andesite_stairs",
             "uvlock":true,
             "x":180,
             "y":270
         },
         "facing=south,half=bottom,shape=straight":{
-            "model":"block/cut_copper_stairs",
+            "model":"block/andesite_stairs",
             "uvlock":true,
             "y":90
         },
         "facing=south,half=top,shape=straight":{
-            "model":"block/cut_copper_stairs",
+            "model":"block/andesite_stairs",
             "uvlock":true,
             "x":180,
             "y":90
         },
         "facing=west,half=bottom,shape=straight":{
-            "model":"block/cut_copper_stairs",
+            "model":"block/andesite_stairs",
             "uvlock":true,
             "y":180
         },
         "facing=west,half=top,shape=straight":{
-            "model":"block/cut_copper_stairs",
+            "model":"block/andesite_stairs",
             "uvlock":true,
             "x":180,
             "y":180

@@ -1,5 +1,9 @@
 {
     "variants":{
+        "facing=east,half=bottom,open=true":{
+            "model":"block/iron_trapdoor_open",
+            "y":90
+        },
         "facing=north,half=top,open=false":{
             "model":"block/iron_trapdoor_top"
         },
