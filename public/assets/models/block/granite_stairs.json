@@ -19,7 +19,7 @@
                         16,
                         16
                     ],
-                    "texture":"block/granite",
+                    "texture":"block/high_voltage_conductor",
                     "cullface":"down"
                 },
                 "up":{
@@ -29,7 +29,7 @@
                         16,
                         16
                     ],
-                    "texture":"block/granite"
+                    "texture":"block/high_voltage_conductor"
                 },
                 "north":{
                     "uv":[
@@ -38,7 +38,7 @@
                         16,
                         16
                     ],
-                    "texture":"block/granite",
+                    "texture":"block/high_voltage_conductor",
                     "cullface":"north"
                 },
                 "south":{
@@ -48,7 +48,7 @@
                         16,
                         16
                     ],
-                    "texture":"block/granite",
+                    "texture":"block/high_voltage_conductor",
                     "cullface":"south"
                 },
                 "west":{
@@ -58,7 +58,7 @@
                         16,
                         16
                     ],
-                    "texture":"block/granite",
+                    "texture":"block/high_voltage_conductor",
                     "cullface":"west"
                 },
                 "east":{
@@ -68,7 +68,7 @@
                         16,
                         16
                     ],
-                    "texture":"block/granite",
+                    "texture":"block/high_voltage_conductor",
                     "cullface":"east"
                 }
             }
@@ -92,7 +92,7 @@
                         16,
                         16
                     ],
-                    "texture":"block/granite",
+                    "texture":"block/high_voltage_conductor",
                     "cullface":"up"
                 },
                 "north":{
@@ -102,7 +102,7 @@
                         8,
                         8
                     ],
-                    "texture":"block/granite",
+                    "texture":"block/high_voltage_conductor",
                     "cullface":"north"
                 },
                 "south":{
@@ -112,7 +112,7 @@
                         16,
                         8
                     ],
-                    "texture":"block/granite",
+                    "texture":"block/high_voltage_conductor",
                     "cullface":"south"
                 },
                 "west":{
@@ -122,7 +122,7 @@
                         16,
                         8
                     ],
-                    "texture":"block/granite"
+                    "texture":"block/high_voltage_conductor"
                 },
                 "east":{
                     "uv":[
@@ -131,7 +131,7 @@
                         16,
                         8
                     ],
-                    "texture":"block/granite",
+                    "texture":"block/high_voltage_conductor",
                     "cullface":"east"
                 }
             }

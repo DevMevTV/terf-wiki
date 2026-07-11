@@ -24,6 +24,10 @@
     "name": "Fabricator"
   },
   {
+    "id": "large_fluid_solidifier",
+    "name": "Large Fluid Solidifier"
+  },
+  {
     "id": "magma_drill",
     "name": "Magma Drill"
   },

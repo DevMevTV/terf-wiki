@@ -13,21 +13,21 @@
             ],
             "faces":{
                 "down":{
-                    "texture":"block/granite",
+                    "texture":"block/hvc_full_top",
                     "cullface":"down"
                 },
                 "up":{
-                    "texture":"block/granite"
+                    "texture":"block/hvc_full_top"
                 },
                 "north":{
-                    "texture":"block/granite",
+                    "texture":"block/hvc_full_top",
                     "cullface":"north"
                 },
                 "west":{
-                    "texture":"block/granite"
+                    "texture":"block/hvc_full_top"
                 },
                 "east":{
-                    "texture":"block/granite"
+                    "texture":"block/hvc_full_top"
                 }
             },
             "__comment":"wall"

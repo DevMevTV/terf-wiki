@@ -1,0 +1,7 @@
+{
+    "variants":{
+        "face=floor,facing=north,powered=false":{
+            "model":"block/lever_on"
+        }
+    }
+}

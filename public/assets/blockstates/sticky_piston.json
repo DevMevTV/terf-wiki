@@ -1,0 +1,8 @@
+{
+    "variants":{
+        "extended=false,facing=down":{
+            "model":"block/sticky_piston",
+            "x":90
+        }
+    }
+}

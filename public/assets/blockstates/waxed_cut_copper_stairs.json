@@ -1,45 +1,45 @@
 {
     "variants":{
         "facing=east,half=bottom,shape=straight":{
-            "model":"block/cut_copper_stairs"
+            "model":"block/waxed_cut_copper_stairs"
         },
         "facing=east,half=top,shape=straight":{
-            "model":"block/cut_copper_stairs",
-            "uvlock":true,
-            "x":180
+            "model":"block/waxed_cut_copper_stairs",
+            "x":180,
+            "uvlock":true
         },
         "facing=north,half=bottom,shape=straight":{
-            "model":"block/cut_copper_stairs",
-            "uvlock":true,
-            "y":270
+            "model":"block/waxed_cut_copper_stairs",
+            "y":270,
+            "uvlock":true
         },
         "facing=north,half=top,shape=straight":{
-            "model":"block/cut_copper_stairs",
-            "uvlock":true,
+            "model":"block/waxed_cut_copper_stairs",
             "x":180,
-            "y":270
+            "y":270,
+            "uvlock":true
         },
         "facing=south,half=bottom,shape=straight":{
-            "model":"block/cut_copper_stairs",
-            "uvlock":true,
-            "y":90
+            "model":"block/waxed_cut_copper_stairs",
+            "y":90,
+            "uvlock":true
         },
         "facing=south,half=top,shape=straight":{
-            "model":"block/cut_copper_stairs",
-            "uvlock":true,
+            "model":"block/waxed_cut_copper_stairs",
             "x":180,
-            "y":90
+            "y":90,
+            "uvlock":true
         },
         "facing=west,half=bottom,shape=straight":{
-            "model":"block/cut_copper_stairs",
-            "uvlock":true,
-            "y":180
+            "model":"block/waxed_cut_copper_stairs",
+            "y":180,
+            "uvlock":true
         },
         "facing=west,half=top,shape=straight":{
-            "model":"block/cut_copper_stairs",
-            "uvlock":true,
+            "model":"block/waxed_cut_copper_stairs",
             "x":180,
-            "y":180
+            "y":180,
+            "uvlock":true
         }
     }
 }

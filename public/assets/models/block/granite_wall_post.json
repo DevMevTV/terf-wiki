@@ -13,24 +13,24 @@
             ],
             "faces":{
                 "down":{
-                    "texture":"block/granite",
+                    "texture":"block/hvc_post",
                     "cullface":"down"
                 },
                 "up":{
-                    "texture":"block/granite",
+                    "texture":"block/hvc_post",
                     "cullface":"up"
                 },
                 "north":{
-                    "texture":"block/granite"
+                    "texture":"block/hvc_post"
                 },
                 "south":{
-                    "texture":"block/granite"
+                    "texture":"block/hvc_post"
                 },
                 "west":{
-                    "texture":"block/granite"
+                    "texture":"block/hvc_post"
                 },
                 "east":{
-                    "texture":"block/granite"
+                    "texture":"block/hvc_post"
                 }
             },
             "__comment":"Center post"

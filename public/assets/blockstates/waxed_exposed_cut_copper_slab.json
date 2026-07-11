@@ -1,10 +1,10 @@
 {
     "variants":{
         "type=bottom":{
-            "model":"block/exposed_cut_copper_slab"
+            "model":"block/waxed_exposed_cut_copper_slab"
         },
         "type=top":{
-            "model":"block/exposed_cut_copper_slab_top"
+            "model":"block/waxed_exposed_cut_copper_slab_top"
         }
     }
 }
