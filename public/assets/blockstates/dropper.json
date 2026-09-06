@@ -1,5 +1,8 @@
 {
     "variants":{
+        "facing=north":{
+            "model":"block/dropper"
+        },
         "facing=south":{
             "model":"block/dropper",
             "y":180

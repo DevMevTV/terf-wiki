@@ -12,6 +12,10 @@
     "name": "Diesel Generator"
   },
   {
+    "id": "electric_blast_furnace",
+    "name": "Electric Blast Furnace"
+  },
+  {
     "id": "electric_press",
     "name": "Electric Press"
   },

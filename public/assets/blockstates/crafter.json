@@ -1,5 +1,9 @@
 {
     "variants":{
+        "crafting=false,orientation=east_up,triggered=false":{
+            "model":"block/crafter",
+            "y":90
+        },
         "crafting=false,orientation=north_up,triggered=false":{
             "model":"block/crafter"
         }
